@@ -112,6 +112,34 @@ p {
   .content > div > .head {
     flex: 0 1 !important;
   }
+
+  .body > .left-row {
+    flex-direction: column !important;
+  }
+
+  .item > h4 {
+    font-size: 2rem !important;
+  }
+
+  .body > .to-center {
+    padding: 0px !important;
+  }
+
+  .to-center > .item {
+    align-items: center !important;
+  }
+
+  .title-abs > h3 {
+    font-size: 6rem !important;
+  }
+
+  .to-center > .item > h3 {
+    font-size: 3rem !important;
+  }
+
+  .to-center > .item > div {
+    max-width: 90% !important;
+  }
 }
 
 .mt-c {
@@ -152,10 +180,68 @@ section > .content {
   flex-wrap: wrap;
 }
 
+.body > .to-center {
+  padding: 0px 100px;
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+}
+
+.to-center > .item {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  flex: 1;
+  align-items: center;
+}
+
+.to-center > .item > h3 {
+  font-size: 4rem;
+}
+
+.to-center > .item > div {
+  max-width: 50%;
+}
+
+.to-center > .item > div > p {
+    font-size: .9rem;
+    font-weight: 500;
+    letter-spacing: 1px;
+}
+
+.title-abs {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.title-abs > h3 {
+  font-size: 10rem;
+}
+
 .body > .left {
   flex: 2;
   display: flex;
   flex-direction: column;
+}
+
+.body > .left-row {
+  flex: 2;
+  display: flex;
+  flex-direction: row;
+}
+
+.left-row > .item {
+  flex: 1;
+}
+
+.item > h4 {
+  font-size: 3.5rem;
 }
 
 .body > .left > .top {
@@ -172,11 +258,25 @@ section > .content {
   flex: 1;
 }
 
+.body > .right {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.body > .center {
+  flex: 1;
+}
+
 .body > .right > .top {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   flex: 2;
+}
+
+.top > h4 {
+  font-size: 4rem;
 }
 
 .body > .right > .bottom {
@@ -186,16 +286,34 @@ section > .content {
   flex: 1;
 }
 
-.right > .progress {
+.right > .skill {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.right > .skill > .skill-level {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
 }
 
-.progress > label {
+.skill > .skill-level:first-child {
+  margin-top: 0 !important;
+}
+
+.skill > .skill-level:nth-child(n) {
+  margin-top: 1rem;
+}
+
+.skill-level > .label {
   color: #fff;
-  width: 10%;
+  width: 30%;
+}
+
+.skill-level > .progress {
+  margin-left: 1rem;
 }
 
 .right > h6 {
@@ -208,10 +326,6 @@ section > .content {
   border: none;
   display: flex;
   justify-content: space-between;
-}
-
-.body > .right {
-  flex: 1;
 }
 
 .content > div > .end {
