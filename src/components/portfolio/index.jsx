@@ -210,16 +210,16 @@ const Portfolio = props => {
                             </div>
                         </div>
                         <div className='right'>
-                            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'flex-start'}}>
-                                <span>JS</span>
+                            <div className='progress'>
+                                <label>JS</label>
                                 <ProgressBar variant="success" now={80} style={{width: '90%'}} />
                             </div>
-                            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'flex-start'}}>
-                                <span>JS</span>
+                            <div className='progress'>
+                                <label>JS</label>
                                 <ProgressBar variant="warning" now={80} style={{width: '90%'}} />
                             </div>
-                            <div style={{display: 'flex', flexDirection: 'row', justifyContent: 'flex-start', alignItems: 'flex-start'}}>
-                                <span>JS</span>
+                            <div className='progress'>
+                                <label>JS</label>
                                 <div><ProgressBar variant="danger" now={80}style={{width: '90%'}} /></div>
                             </div>
                         </div>

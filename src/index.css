@@ -186,6 +186,18 @@ section > .content {
   flex: 1;
 }
 
+.right > .progress {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.progress > label {
+  color: #fff;
+  width: 10%;
+}
+
 .right > h6 {
   font-size: 1.7rem;
 }
