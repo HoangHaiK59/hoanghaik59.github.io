@@ -62,6 +62,9 @@ p {
   section{
     padding: 0;
   }
+  section > .content {
+    height: inherit !important; 
+  }
   .body > .right {
     margin-top: 1.2rem;
   }
@@ -95,6 +98,24 @@ p {
   .right > h6 {
     font-size: 1.1rem !important;
   }
+  .body {
+    flex-direction: column !important;
+    padding-top: 2rem !important;
+  }
+  .mt-c {
+    margin-top: 4rem !important;
+  }
+  .body > .left > .top {
+    flex-direction: row !important;
+    flex-wrap: wrap !important;
+  }
+  .content > div > .head {
+    flex: 0 1 !important;
+  }
+}
+
+.mt-c {
+  margin-top: .25rem;
 }
 
 section > .content {
@@ -106,7 +127,9 @@ section > .content {
   background-size: cover;
   background-attachment: fixed;
   background-position: center;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  cursor: url('./assets/images/rsz_scroll.png'),auto;
 }
 
 .content > div {
@@ -199,4 +222,9 @@ section > .content {
   100% {
     transform: translateY(0px)
   }
+}
+
+::-webkit-scrollbar {
+  width: 0;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
 }
