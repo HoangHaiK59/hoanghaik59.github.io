@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container, Row, Col, Button, ProgressBar, Card } from 'react-bootstrap';
+import { Container, Row, Col, Button, ProgressBar, Card, Toast } from 'react-bootstrap';
 import { FaFacebook, FaInstagram, FaGithub, FaPhoneAlt } from 'react-icons/fa';
 import ScrollAnimation from '../scroll';
 
@@ -7,6 +7,7 @@ import fsoft from '../../assets/svg/fsoft.svg';
 import etc from '../../assets/images/etc.png';
 import sunshine from '../../assets/svg/sunshine.svg';
 import ContactLetter from '../modal/contact';
+import ToastNotify from '../toast/notify';
 // const useOnScreen = (options) => {
 //     const ref = useRef();
 //     const [isIntersecting, setIntersecting] = useState(false);
@@ -71,6 +72,8 @@ import ContactLetter from '../modal/contact';
 const Portfolio = props => {
     const [up, setUp] = useState(false);
     const [show, setShow] = useState(false);
+    const [toast, setShowToast] = useState(false);
+    const [message, setMessage] = useState('');
     // const [eleOneRef, eleOneVisible] = useOnScreen({
     //     root: null,
     //     rootMargin: '0px',
@@ -116,7 +119,12 @@ const Portfolio = props => {
         }
         return () => element.removeEventListener('scroll', onScroll)
     })
-    const onHide = () => setShow(false)
+    const onHide = () => setShow(false);
+    const onHideToast = () => setShowToast(false);
+    const setToastMessage = (message) => {
+        setMessage(message);
+        setShowToast(true);
+    }
     return <Container fluid className='root-container'>
         <section>
             <div className='content'>
@@ -367,7 +375,10 @@ const Portfolio = props => {
                 </ScrollAnimation>
             </div>
             {
-                show && <ContactLetter show={show} onHide={onHide} />
+                show && <ContactLetter show={show} onHide={onHide} setToastMessage={setToastMessage}/>
+            }
+            {
+                toast && <ToastNotify show={toast} onHide={onHideToast} message={message} />
             }
         </section>
     </Container>
