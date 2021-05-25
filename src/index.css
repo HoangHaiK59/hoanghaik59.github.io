@@ -40,7 +40,7 @@ h2 {
 }
 
 h3 > span {
-  font-size: 4rem;
+  font-size: 5rem;
   font-weight: 600;
   color: #ed5847;
 }
@@ -78,9 +78,13 @@ p {
     font-size: 2.5rem;
     font-weight: 600;
   }
+
+  .left > .top > h3 {
+    font-size: 3rem !important;
+  }
   
   h3 > span {
-    font-size: 2.5rem;
+    font-size: 3rem;
     font-weight: 600;
     color: #ed5847;
   }
@@ -104,6 +108,9 @@ p {
   }
   .mt-c {
     margin-top: 4rem !important;
+  }
+  .mt-k {
+    margin-top: 6rem !important;
   }
   .body > .left > .top {
     flex-direction: row !important;
@@ -129,7 +136,7 @@ p {
     align-items: center !important;
   }
 
-  .title-abs > h3 {
+  .title-abs > h3, .title-abs-top > h3 {
     font-size: 6rem !important;
   }
 
@@ -140,9 +147,37 @@ p {
   .to-center > .item > div {
     max-width: 90% !important;
   }
+  
+  .content > div > .end > .itemColSm {
+    justify-content: flex-start !important;
+  }
+
+  .end > .itemColSm > div:nth-child(n) {
+    margin-top: .5rem !important;
+  }
+
+  .end > .itemColSm > div:first-child {
+    margin-top: 0 !important;
+  }
+
+  .card-h {
+    height: 200px !important;
+  }
+
+  .card-c {
+    min-height: 80px !important;
+  }
+
+  .card > .card-body > h3 {
+    font-size: 2.5rem !important;
+  }
+
+  .card-h > .card > .card-body > h3 {
+    font-size: 1.8rem !important;
+  }
 }
 
-.mt-c {
+.mt-c, .mt-k {
   margin-top: .25rem;
 }
 
@@ -158,6 +193,26 @@ section > .content {
   overflow-y: auto;
   overflow-x: hidden;
   cursor: url('./assets/images/rsz_scroll.png'),auto;
+}
+
+.card-c > .card > .card-body {
+  display: flex;
+  flex-direction: column;
+}
+
+.card-h > .card > .card-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.card > .card-body > h3 {
+  font-size: 3rem;
+}
+
+.card > .card-body > h6 {
+  font-size: 1rem;
 }
 
 .content > div {
@@ -211,16 +266,27 @@ section > .content {
 
 .title-abs {
   position: absolute;
-  top: 50%;
+  top: 42%;
   left: 0;
-  transform: translate(0, -50%);
+  /* transform: translate(0, -50%); */
   display: flex;
   justify-content: center;
   align-items: center;
   width: 100%;
 }
 
-.title-abs > h3 {
+.title-abs-top {
+  position: absolute;
+  bottom: 30%;
+  left: 0;
+  /* transform: translate(0, -50%); */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.title-abs > h3, .title-abs-top > h3 {
   font-size: 10rem;
 }
 
@@ -241,7 +307,20 @@ section > .content {
 }
 
 .item > h4 {
-  font-size: 3.5rem;
+  font-size: 6.5rem;
+  font-weight: 600;
+}
+
+.card-h {
+  height: 400px;
+}
+
+.card-c {
+  min-height: 120px;
+}
+
+.card-c > .card {
+  height: inherit;
 }
 
 .body > .left > .top {
@@ -249,6 +328,12 @@ section > .content {
   flex-direction: column;
   justify-content: flex-start;
   flex: 1;
+}
+
+.left > .top > h3 {
+  font-size: 5rem;
+  font-weight: bold;
+  letter-spacing: 3;
 }
 
 .body > .left > .bottom {
@@ -322,7 +407,7 @@ section > .content {
 
 .bottom > .button {
   width: 120px;
-  background-color: #eb5746;
+  background-color: #d62424;
   border: none;
   display: flex;
   justify-content: space-between;
@@ -331,13 +416,75 @@ section > .content {
 .content > div > .end {
   flex: 0.3;
   display: flex;
+  flex-direction: row;
+}
+
+.content > div > .end > .itemRow {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  padding-right: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.end > .itemRow > .rsm {
+  display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  flex: .2 1;
+  text-align: center;
+  padding: 0px 6px 0px 0px;
+}
+
+.end > .itemRow > .rsm:nth-child(n) {
+  /* border-right: 1px solid #fff; */
+}
+
+.end > .itemRow > .rsm:last-child {
+  /* border: 0 !important; */
+}
+
+.rsm > h6 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.content > div > .end > .itemCol {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  justify-content: space-between;
+}
+
+.content > div > .end > .itemColSm {
+  display: flex;
+  flex-direction: column;
+  flex: 0 1;
   justify-content: space-between;
 }
 
 .animation {
   /* transform: translateY(100px); */
   animation: slideTop 6s;
+}
+
+input {
+  width: 100%;
+  height: 50px;
+  padding: 6px;
+  border-radius: 5px;
+  border-color: #fff;
+  border: none;
+}
+
+input::placeholder {
+  color: '#aba7a7';
+}
+
+input:focus {
+  border: none;
+  outline: none;
 }
 
 

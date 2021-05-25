@@ -1,8 +1,12 @@
 import { useEffect, useState } from 'react';
-import { Container, Row, Col, Button, ProgressBar } from 'react-bootstrap';
-import { FaFacebook, FaInstagram, FaGithub, FaLongArrowAltRight } from 'react-icons/fa';
+import { Container, Row, Col, Button, ProgressBar, Card } from 'react-bootstrap';
+import { FaFacebook, FaInstagram, FaGithub, FaPhoneAlt } from 'react-icons/fa';
 import ScrollAnimation from '../scroll';
 
+import fsoft from '../../assets/svg/fsoft.svg';
+import etc from '../../assets/images/etc.png';
+import sunshine from '../../assets/svg/sunshine.svg';
+import ContactLetter from '../modal/contact';
 // const useOnScreen = (options) => {
 //     const ref = useRef();
 //     const [isIntersecting, setIntersecting] = useState(false);
@@ -65,7 +69,8 @@ import ScrollAnimation from '../scroll';
 
 
 const Portfolio = props => {
-    const [up, setUp] = useState(false)
+    const [up, setUp] = useState(false);
+    const [show, setShow] = useState(false);
     // const [eleOneRef, eleOneVisible] = useOnScreen({
     //     root: null,
     //     rootMargin: '0px',
@@ -111,6 +116,7 @@ const Portfolio = props => {
         }
         return () => element.removeEventListener('scroll', onScroll)
     })
+    const onHide = () => setShow(false)
     return <Container fluid className='root-container'>
         <section>
             <div className='content'>
@@ -120,89 +126,98 @@ const Portfolio = props => {
                             <Col lg={1} md={1} xs={2}>
                                 <img alt="" src={process.env.PUBLIC_URL + '/htlogo.png'} width={45} height={45} />
                             </Col>
-                            <Col lg={11} md={11} xs={10} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
+                            <Col lg={9} md={9} xs={5} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
                                 <p>trinhhaik59@gmail.com</p>
+                            </Col>
+                            <Col lg={2} md={2} xs={5} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', textAlign: 'end' }}>
+                                <p style={{ cursor: 'pointer' }}><FaPhoneAlt color='#eb5457' style={{ marginRight: '.5rem' }} /> Schedule a call</p>
                             </Col>
                         </Row>
                     </div>
                     <div className='body'>
                         <div className='left'>
                             <div className='top'>
-                                <h3>Hi, </h3>
-                                <h3>I'm <span>Hai Trinh</span></h3>
-                                <h6>Frontend Developer</h6>
+                                <h3 style={{ letterSpacing: 1 }}>Hi, </h3>
+                                <h3 style={{ letterSpacing: 1 }}>I'm <span style={{ color: '#ed3438' }}>Hai Trinh</span></h3>
+                                <h6 style={{ letterSpacing: 1 }}>I'm Frontend Developer</h6>
                             </div>
                             <div className='bottom'>
-                                <Button className='button' variant="primary">
-                                    <div>Hire me</div>
-                                    <div style={{ background: 'rgba(217, 211, 210, .4)', width: 30, borderRadius: 5 }}><FaLongArrowAltRight /></div>
+                                <Button className='button' variant="primary" onClick={() => setShow(true)}>
+                                    <p style={{ fontSize: '1rem', fontWeight: 500, letterSpacing: 1, marginBottom: 0 }}>Contact me</p>
+                                    {/* <div style={{ background: 'rgba(217, 211, 210, .4)', width: 30, borderRadius: 5 }}><FaLongArrowAltRight /></div> */}
                                 </Button>
                             </div>
                         </div>
                         <div className='right'>
                             <h6 style={{ color: '#eb5746' }}>Expert on</h6>
-                            <h2>Based in Vietnam i'm developer</h2>
-                            <h6>Hey are looking for developer to build your brand and grow your business?let's shake hands with me</h6>
+                            <h2>In Vietnam i'm frontend developer, react native developer</h2>
+                            <h6>Hey are looking for developer to build your brand and grow your business? let's shake hands with me</h6>
                         </div>
                     </div>
                     <div className='end'>
-                        <div>
-                            <FaFacebook />
+                        <div className='itemRow'>
+                            <div className='rsm'>
+                                <h6>Email</h6>
+                                <p style={{ letterSpacing: 1 }}>trinhhaik59@gmail.com</p>
+                            </div>
+                            <div className='rsm'>
+                                <h6>Phone</h6>
+                                <p style={{ letterSpacing: 1 }}>0332815502</p>
+                            </div>
+                            <div className='rsm'>
+                                <h6>Location</h6>
+                                <p style={{ letterSpacing: 1 }}>Hanoi Vietnam</p>
+                            </div>
                         </div>
-                        <div>
-                            <FaInstagram />
-                        </div>
-                        <div>
-                            <FaGithub />
+                        <div className='itemColSm'>
+                            <div>
+                                <FaFacebook size={20} />
+                            </div>
+                            <div>
+                                <FaInstagram size={20} />
+                            </div>
+                            <div>
+                                <FaGithub size={20} />
+                            </div>
                         </div>
                     </div>
                 </div>
-                <ScrollAnimation className='mt-c position-relative' animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={2} delay={300} scrollableParentSelector='.content' initiallyVisible={false}>
+                <ScrollAnimation className='mt-k position-relative' animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={2} delay={300} scrollableParentSelector='.content' initiallyVisible={false}>
                     <div className='head'>
                     </div>
                     <div className='body'>
                         <div className='to-center'>
                             <div className='item'>
                                 <h3>2014</h3>
-                                <div style={{maxWidth: '50%'}}>
+                                <div style={{ maxWidth: '50%' }}>
                                     <p>Studied at the University of Engineering and Technology, Vietnam National University Hanoi </p>
                                 </div>
                             </div>
                             <div className='item'>
                                 <h3>2018</h3>
-                                <div style={{maxWidth: '50%'}}>
+                                <div style={{ maxWidth: '50%' }}>
                                     <p>Graduated from University of Engineering and Technology, Vietnam National University Hanoi with a bachelor's degree in mechatronics </p>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div className='end'>
-                    </div>
-                    <ScrollAnimation className='title-abs' animateOnce={false} animateIn={up ? 'fadeInDownBig' : 'fadeInUpBig'} duration={3} delay={300} scrollableParentSelector='.content' initiallyVisible={false}>
+                    <ScrollAnimation className='title-abs' animateOnce={false} animateIn={up ? 'fadeInDownBig' : 'fadeInUpBig'} duration={2} delay={300} scrollableParentSelector='.content' initiallyVisible={false}>
                         <h3>Education</h3>
                     </ScrollAnimation>
                 </ScrollAnimation>
                 <ScrollAnimation className='mt-c' animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={2} delay={300} scrollableParentSelector='.content' initiallyVisible={false}>
                     <div className='head'>
-                        <Row>
-                            <Col lg={1} md={1} xs={2}>
-                                <img alt="" src={process.env.PUBLIC_URL + '/htlogo.png'} width={45} height={45} />
-                            </Col>
-                            <Col lg={11} md={11} xs={10} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-                                <p>trinhhaik59@gmail.com</p>
-                            </Col>
-                        </Row>
                     </div>
                     <div className='body'>
                         <div className='left-row'>
-                            <div className='item'>
+                            <ScrollAnimation className='item' animateOnce={false} animateIn={up ? 'slideInDown' : 'slideInUp'} duration={2} delay={100} scrollableParentSelector='.content' initiallyVisible={false}>
                                 <h4>
-                                    The skills I have accumulated through the work that I do and through projects, hours of learning new skills
+                                    What can i do ?
                                 </h4>
-                            </div>
+                            </ScrollAnimation>
                             <div className='item'></div>
                         </div>
-                        <div className='right'>
+                        <ScrollAnimation className='right' animateOnce={false} animateIn={up ? 'slideInDown' : 'slideInUp'} duration={3} delay={100} scrollableParentSelector='.content' initiallyVisible={false}>
                             <h6 style={{ color: '#eb5746' }}>Skills</h6>
                             <div className='skill'>
                                 <div className='skill-level'>
@@ -242,64 +257,118 @@ const Portfolio = props => {
                                     <ProgressBar variant="warning" now={70} style={{ width: '90%' }} />
                                 </div>
                             </div>
-                        </div>
+                        </ScrollAnimation>
                     </div>
-                    <div className='end'>
-                        <div>
-                            <FaFacebook />
-                        </div>
-                        <div>
-                            <FaInstagram />
-                        </div>
-                        <div>
-                            <FaGithub />
+                </ScrollAnimation>
+                <ScrollAnimation animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={2} delay={300} scrollableParentSelector='.content' initiallyVisible={false}>
+                    <ScrollAnimation className='head' animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={1} delay={100} scrollableParentSelector='.content' initiallyVisible={false}>
+                        <h3>Experience</h3>
+                    </ScrollAnimation>
+                    <div className='body'>
+                        <div className='to-center'>
+                            <Container fluid>
+                                <Row >
+                                    <Col lg={12} md={12} xs={12}>
+                                        <Row>
+                                            <Col lg={6} md={6} xs={12}>
+                                                <ScrollAnimation className='card-c' animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={1} delay={100} scrollableParentSelector='.content' initiallyVisible={false}>
+                                                    <Card style={{ background: 'rgba(23, 22, 22, .4)' }}>
+                                                        <Card.Body>
+                                                            <h3>Work at FPT Software</h3>
+                                                            <h6>Time: 05/2018 - 05/2019</h6>
+                                                            <h6>Position: C/C++</h6>
+                                                            <h6>Other: JavaScript</h6>
+                                                        </Card.Body>
+                                                    </Card>
+                                                </ScrollAnimation>
+                                            </Col>
+                                            <Col lg={6} md={6} xs={0}></Col>
+                                        </Row>
+                                    </Col>
+                                    <Col lg={12} md={12} xs={12}>
+                                        <Row>
+                                            <Col lg={6} md={6} xs={0}></Col>
+                                            <Col lg={6} md={6} xs={12}>
+                                                <ScrollAnimation className='card-c' animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={1} delay={100} scrollableParentSelector='.content' initiallyVisible={false}>
+                                                    <Card style={{ background: 'rgba(23, 22, 22, .4)' }}>
+                                                        <Card.Body>
+                                                            <h3>Work at ETC</h3>
+                                                            <h6>Time: 06/2019 - 03/2020</h6>
+                                                            <h6>Position: C/C++ and ReactJS</h6>
+                                                        </Card.Body>
+                                                    </Card>
+                                                </ScrollAnimation>
+                                            </Col>
+                                        </Row>
+                                    </Col>
+                                    <Col lg={12} md={12} xs={12}>
+                                        <Row>
+                                            <Col lg={6} md={6} xs={12}>
+                                                <ScrollAnimation className='card-c' animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={1} delay={100} scrollableParentSelector='.content' initiallyVisible={false}>
+                                                    <Card style={{ background: 'rgba(23, 22, 22, .4)' }}>
+                                                        <Card.Body>
+                                                            <h3>Work at Sunshine Group</h3>
+                                                            <h6>Time: 03/2020 - now</h6>
+                                                            <h6>Position: Frontend Developer</h6>
+                                                        </Card.Body>
+                                                    </Card>
+                                                </ScrollAnimation>
+                                            </Col>
+                                            <Col lg={6} md={6} xs={0}></Col>
+                                        </Row>
+                                    </Col>
+                                </Row>
+                            </Container>
                         </div>
                     </div>
                 </ScrollAnimation>
-                <ScrollAnimation className='mt-c' animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={2} delay={300} scrollableParentSelector='.content' initiallyVisible={false}>
-                    <div className='head'>
-                        <Row>
-                            <Col lg={1} md={1} xs={2}>
-                                <img alt="" src={process.env.PUBLIC_URL + '/htlogo.png'} width={45} height={45} />
-                            </Col>
-                            <Col lg={11} md={11} xs={10} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end' }}>
-                                <p>trinhhaik59@gmail.com</p>
-                            </Col>
-                        </Row>
-                    </div>
+                <ScrollAnimation className='mt-c' animateOnce={false} style={{ cursor: 'default' }} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={2} delay={300} scrollableParentSelector='.content' initiallyVisible={false}>
+                    <ScrollAnimation className='head' animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={1} delay={100} scrollableParentSelector='.content' initiallyVisible={false}>
+                        <h3>Company</h3>
+                    </ScrollAnimation>
                     <div className='body'>
-                        <div className='left'>
-                            <div className='top'>
-                                <h3>Hi, </h3>
-                                <h3>I'm <span>Hai Trinh</span></h3>
-                                <h6>Frontend Developer</h6>
-                            </div>
-                            <div className='bottom'>
-                                <Button className='button' variant="primary">
-                                    <div>Hire me</div>
-                                    <div style={{ background: 'rgba(217, 211, 210, .4)', width: 30, borderRadius: 5 }}><FaLongArrowAltRight /></div>
-                                </Button>
-                            </div>
-                        </div>
-                        <div className='right'>
-                            <h6 style={{ color: '#eb5746' }}>Expert on</h6>
-                            <h2>Based in Vietnam i'm developer</h2>
-                            <h6>Hey are looking for developer to build your brand and grow your business?let's shake hands with me</h6>
-                        </div>
-                    </div>
-                    <div className='end'>
-                        <div>
-                            <FaFacebook />
-                        </div>
-                        <div>
-                            <FaInstagram />
-                        </div>
-                        <div>
-                            <FaGithub />
+                        <div className='to-center'>
+                            <Container fluid>
+                                <Row >
+                                    <Col lg={4} md={4} xs={6}>
+                                        <ScrollAnimation className='card-h' animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={2} delay={200} scrollableParentSelector='.content' initiallyVisible={false}>
+                                            <Card style={{ height: '100%', backgroundColor: 'rgba(23, 23, 22, .4)' }}>
+                                                <Card.Body>
+                                                    <img alt='Fpt Software' src={fsoft} width={100} height={100} />
+                                                    {/* <h3>FPT Software</h3> */}
+                                                </Card.Body>
+                                            </Card>
+                                        </ScrollAnimation>
+                                    </Col>
+                                    <Col lg={4} md={4} xs={6}>
+                                        <ScrollAnimation className='card-h' animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={3} delay={200} scrollableParentSelector='.content' initiallyVisible={false}>
+                                            <Card style={{ height: '100%', backgroundColor: 'rgba(23, 23, 22, .4)' }}>
+                                                <Card.Body>
+                                                    <img alt='ETC' src={etc} width={100} height={100} />
+                                                    {/* <h3>ETC</h3> */}
+                                                </Card.Body>
+                                            </Card>
+                                        </ScrollAnimation>
+                                    </Col>
+                                    <Col lg={4} md={4} xs={6}>
+                                        <ScrollAnimation className='card-h' animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={4} delay={200} scrollableParentSelector='.content' initiallyVisible={false}>
+                                            <Card style={{ height: '100%', backgroundColor: 'rgba(23, 23, 22, .4)' }}>
+                                                <Card.Body>
+                                                    <img alt='Sunshine Group' src={sunshine} width={100} height={100} />
+                                                    {/* <h3>Sunshine Group</h3> */}
+                                                </Card.Body>
+                                            </Card>
+                                        </ScrollAnimation>
+                                    </Col>
+                                </Row>
+                            </Container>
                         </div>
                     </div>
                 </ScrollAnimation>
             </div>
+            {
+                show && <ContactLetter show={show} onHide={onHide} />
+            }
         </section>
     </Container>
 }
