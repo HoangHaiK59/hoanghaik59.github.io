@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
-import { Container, Row, Col, Button, ProgressBar, Card } from 'react-bootstrap';
-import { FaFacebook, FaInstagram, FaGithub, FaPhoneAlt, FaSkype } from 'react-icons/fa';
+import { Container, Row, Col, ProgressBar, Card } from 'react-bootstrap';
+import { FaGithub, FaPhoneAlt, FaSkype } from 'react-icons/fa';
 import ScrollAnimation from '../scroll';
 
 import fsoft from '../../assets/svg/fsoft.svg';
