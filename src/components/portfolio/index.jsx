@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Container, Row, Col, Button, ProgressBar, Card } from 'react-bootstrap';
-import { FaFacebook, FaInstagram, FaGithub, FaPhoneAlt } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaGithub, FaPhoneAlt, FaSkype } from 'react-icons/fa';
 import ScrollAnimation from '../scroll';
 
 import fsoft from '../../assets/svg/fsoft.svg';
@@ -128,6 +128,15 @@ const Portfolio = props => {
         setShowToast(true);
     }
     const onHidePopup = () => setPopup(false);
+    const gotoGithub = () => {
+        window.open('https://github.com/HoangHaiK59', '_self')
+    }
+    const gotoSkype = () => {
+        window.open('https://join.skype.com/invite/oFltJxbmeC4m', '_self')
+    }
+    // const gotoFacebook = () => {
+    //     window.open('https://www.facebook.com/profile.php?id=100034391243424', '_self')
+    // }
     return <Container fluid className='root-container'>
         <section>
             <div className='content'>
@@ -179,15 +188,12 @@ const Portfolio = props => {
                                 <p style={{ letterSpacing: 1 }}>Hanoi Vietnam</p>
                             </div>
                         </div>
-                        <div className='itemColSm'>
-                            <div>
-                                <FaFacebook size={20} />
+                        <div className='itemColSm' style={{justifyContent: 'flex-end'}}>
+                            <div style={{cursor: 'pointer'}}>
+                                <FaSkype onClick={gotoSkype} size={20} />
                             </div>
-                            <div>
-                                <FaInstagram size={20} />
-                            </div>
-                            <div>
-                                <FaGithub size={20} />
+                            <div style={{cursor: 'pointer'}}>
+                                <FaGithub onClick={gotoGithub} size={20} />
                             </div>
                         </div>
                     </div>
