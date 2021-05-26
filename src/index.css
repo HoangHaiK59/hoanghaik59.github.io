@@ -494,6 +494,24 @@ input:focus {
   outline: none;
 }
 
+textarea {
+  width: 100%;
+  height: 100px;
+  padding: 6px;
+  border-radius: 5px;
+  border-color: #fff;
+  border: none;
+}
+
+textarea::placeholder {
+  color: '#aba7a7';
+}
+
+textarea:focus {
+  border: none;
+  outline: none;
+}
+
 
 @keyframes slideTop {
   0% {

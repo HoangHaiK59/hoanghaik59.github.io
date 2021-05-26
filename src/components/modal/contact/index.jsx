@@ -10,7 +10,7 @@ const ContactLetter = ({ show, onHide, setToastMessage }) => {
     const sendEmail = async (event) => {
         const form = event.currentTarget;
         event.preventDefault();
-        if (form.checkValidity() == false) {
+        if (form.checkValidity() === false) {
             return;
         }
         // await fetch('https://mandrillapp.com/api/1.0/messages/send.json',{
@@ -59,7 +59,7 @@ const ContactLetter = ({ show, onHide, setToastMessage }) => {
                     if (res.message) {
                         setToastMessage('Send email successfull!')
                         onHide();
-                    } else if (res.err) {
+                    } else if (res.error) {
                         setToastMessage('Send email error!')
                     }
                 }))

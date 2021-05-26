@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Container, Row, Col, Button, ProgressBar, Card, Toast } from 'react-bootstrap';
+import { Container, Row, Col, Button, ProgressBar, Card } from 'react-bootstrap';
 import { FaFacebook, FaInstagram, FaGithub, FaPhoneAlt } from 'react-icons/fa';
 import ScrollAnimation from '../scroll';
 
@@ -8,6 +8,7 @@ import etc from '../../assets/images/etc.png';
 import sunshine from '../../assets/svg/sunshine.svg';
 import ContactLetter from '../modal/contact';
 import ToastNotify from '../toast/notify';
+import PhoneSchedule from '../modal/schedule';
 // const useOnScreen = (options) => {
 //     const ref = useRef();
 //     const [isIntersecting, setIntersecting] = useState(false);
@@ -74,6 +75,7 @@ const Portfolio = props => {
     const [show, setShow] = useState(false);
     const [toast, setShowToast] = useState(false);
     const [message, setMessage] = useState('');
+    const [popup, setPopup] = useState(false)
     // const [eleOneRef, eleOneVisible] = useOnScreen({
     //     root: null,
     //     rootMargin: '0px',
@@ -105,13 +107,6 @@ const Portfolio = props => {
     // const eleThrVisible = useVisible(contentRef, eleThrRef, 200);
     // console.log(eleOneVisible, eleTwoVisible, eleThrVisible)
     // const urlCursor = resizeUrlCursor();
-    const onScroll = event => {
-        if (event.wheelDelta) {
-            setUp(event.wheelDelta > 0)
-        } else {
-            setUp(event.deltaY < 0)
-        }
-    }
     useEffect(() => {
         const element = document.querySelector('.content');
         if (element) {
@@ -119,12 +114,20 @@ const Portfolio = props => {
         }
         return () => element.removeEventListener('scroll', onScroll)
     })
+    const onScroll = event => {
+        if (event.wheelDelta) {
+            setUp(event.wheelDelta > 0)
+        } else {
+            setUp(event.deltaY < 0)
+        }
+    }
     const onHide = () => setShow(false);
     const onHideToast = () => setShowToast(false);
     const setToastMessage = (message) => {
         setMessage(message);
         setShowToast(true);
     }
+    const onHidePopup = () => setPopup(false);
     return <Container fluid className='root-container'>
         <section>
             <div className='content'>
@@ -138,7 +141,7 @@ const Portfolio = props => {
                                 <p>trinhhaik59@gmail.com</p>
                             </Col>
                             <Col lg={2} md={2} xs={5} style={{ display: 'flex', flexDirection: 'column', justifyContent: 'flex-end', textAlign: 'end' }}>
-                                <p style={{ cursor: 'pointer' }}><FaPhoneAlt color='#eb5457' style={{ marginRight: '.5rem' }} /> Schedule a call</p>
+                                <p onClick={() => setPopup(true)} style={{ cursor: 'pointer' }}><FaPhoneAlt color='#eb5457' style={{ marginRight: '.5rem' }} /> Schedule a call</p>
                             </Col>
                         </Row>
                     </div>
@@ -150,15 +153,14 @@ const Portfolio = props => {
                                 <h6 style={{ letterSpacing: 1 }}>I'm Frontend Developer</h6>
                             </div>
                             <div className='bottom'>
-                                <Button className='button' variant="primary" onClick={() => setShow(true)}>
+                                {/* <Button className='button' variant="primary" onClick={() => setShow(true)}>
                                     <p style={{ fontSize: '1rem', fontWeight: 500, letterSpacing: 1, marginBottom: 0 }}>Contact me</p>
-                                    {/* <div style={{ background: 'rgba(217, 211, 210, .4)', width: 30, borderRadius: 5 }}><FaLongArrowAltRight /></div> */}
-                                </Button>
+                                </Button> */}
                             </div>
                         </div>
                         <div className='right'>
                             <h6 style={{ color: '#eb5746' }}>Expert on</h6>
-                            <h2>In Vietnam i'm frontend developer, react native developer</h2>
+                            <h2>In Vietnam, I am a Frontend and React Navitive developer</h2>
                             <h6>Hey are looking for developer to build your brand and grow your business? let's shake hands with me</h6>
                         </div>
                     </div>
@@ -340,9 +342,9 @@ const Portfolio = props => {
                                 <Row >
                                     <Col lg={4} md={4} xs={6}>
                                         <ScrollAnimation className='card-h' animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={2} delay={200} scrollableParentSelector='.content' initiallyVisible={false}>
-                                            <Card style={{ height: '100%', backgroundColor: 'rgba(23, 23, 22, .4)' }}>
+                                            <Card style={{ height: '100%', backgroundColor: 'transparent', border: 'none' }}>
                                                 <Card.Body>
-                                                    <img alt='Fpt Software' src={fsoft} width={100} height={100} />
+                                                    <img alt='Fpt Software' src={fsoft} width={120} height={120} />
                                                     {/* <h3>FPT Software</h3> */}
                                                 </Card.Body>
                                             </Card>
@@ -350,9 +352,9 @@ const Portfolio = props => {
                                     </Col>
                                     <Col lg={4} md={4} xs={6}>
                                         <ScrollAnimation className='card-h' animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={3} delay={200} scrollableParentSelector='.content' initiallyVisible={false}>
-                                            <Card style={{ height: '100%', backgroundColor: 'rgba(23, 23, 22, .4)' }}>
+                                            <Card style={{ height: '100%', backgroundColor: 'transparent', border: 'none' }}>
                                                 <Card.Body>
-                                                    <img alt='ETC' src={etc} width={100} height={100} />
+                                                    <img alt='ETC' src={etc} width={120} height={120} />
                                                     {/* <h3>ETC</h3> */}
                                                 </Card.Body>
                                             </Card>
@@ -360,9 +362,9 @@ const Portfolio = props => {
                                     </Col>
                                     <Col lg={4} md={4} xs={6}>
                                         <ScrollAnimation className='card-h' animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={4} delay={200} scrollableParentSelector='.content' initiallyVisible={false}>
-                                            <Card style={{ height: '100%', backgroundColor: 'rgba(23, 23, 22, .4)' }}>
+                                            <Card style={{ height: '100%', backgroundColor: 'transparent', border: 'none' }}>
                                                 <Card.Body>
-                                                    <img alt='Sunshine Group' src={sunshine} width={100} height={100} />
+                                                    <img alt='Sunshine Group' src={sunshine} width={120} height={120} />
                                                     {/* <h3>Sunshine Group</h3> */}
                                                 </Card.Body>
                                             </Card>
@@ -375,10 +377,13 @@ const Portfolio = props => {
                 </ScrollAnimation>
             </div>
             {
-                show && <ContactLetter show={show} onHide={onHide} setToastMessage={setToastMessage}/>
+                show && <ContactLetter show={show} onHide={onHide} setToastMessage={setToastMessage} />
             }
             {
                 toast && <ToastNotify show={toast} onHide={onHideToast} message={message} />
+            }
+            {
+                popup && <PhoneSchedule show={popup} onHide={onHidePopup} setToastMessage={setToastMessage}/>
             }
         </section>
     </Container>
