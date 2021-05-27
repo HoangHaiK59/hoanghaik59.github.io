@@ -288,7 +288,7 @@ const Portfolio = props => {
                                         <Row>
                                             <Col lg={6} md={6} xs={12}>
                                                 <ScrollAnimation className='card-c' animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={1} delay={100} scrollableParentSelector='.content' initiallyVisible={false}>
-                                                    <Card style={{ background: 'rgba(23, 22, 22, .4)' }}>
+                                                    <Card style={{ background: 'transparent', border: 'none' }}>
                                                         <Card.Body>
                                                             <h3>Work at FPT Software</h3>
                                                             <h6>Time: 05/2018 - 05/2019</h6>
@@ -306,7 +306,7 @@ const Portfolio = props => {
                                             <Col lg={6} md={6} xs={0}></Col>
                                             <Col lg={6} md={6} xs={12}>
                                                 <ScrollAnimation className='card-c' animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={1} delay={100} scrollableParentSelector='.content' initiallyVisible={false}>
-                                                    <Card style={{ background: 'rgba(23, 22, 22, .4)' }}>
+                                                    <Card style={{ background: 'transparent', border: 'none' }}>
                                                         <Card.Body>
                                                             <h3>Work at ETC</h3>
                                                             <h6>Time: 06/2019 - 03/2020</h6>
@@ -321,7 +321,7 @@ const Portfolio = props => {
                                         <Row>
                                             <Col lg={6} md={6} xs={12}>
                                                 <ScrollAnimation className='card-c' animateOnce={false} animateIn={up ? 'fadeInDown' : 'fadeInUp'} duration={1} delay={100} scrollableParentSelector='.content' initiallyVisible={false}>
-                                                    <Card style={{ background: 'rgba(23, 22, 22, .4)' }}>
+                                                    <Card style={{ background: 'transparent', border: 'none' }}>
                                                         <Card.Body>
                                                             <h3>Work at Sunshine Group</h3>
                                                             <h6>Time: 03/2020 - now</h6>
